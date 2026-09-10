@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+title: "Self-Supervised Pretraining and Imbalance-Aware Rebalancing for Melanoma Detection"
+message: "If you use this research code, please cite the accompanying manuscript."
+type: software
+authors:
+  - family-names: Tunib
+    given-names: "Itti Samur"
+  - family-names: Ahamed
+    given-names: "Md. Sazzadur"
+  - family-names: Bin
+    given-names: "M.F."
+repository-code: "https://github.com/Rumas0/ssl-rebalance_melanoma_detection"

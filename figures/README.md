@@ -1,0 +1,2 @@
+Store publication figures or figure-generation scripts here when added.
+![alt text](fig_ch3_data_split_updated.png) ![alt text](<finetune_curves_3seed_updated (2).png>) ![alt text](<roc_pr_mel_3seed_updated (2).png>) ![alt text](<3-Layer CNN architecture.png>) ![alt text](fig1_two_stage_pipeline.png)

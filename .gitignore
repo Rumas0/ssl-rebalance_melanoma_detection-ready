@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local / raw datasets
+data/*
+!data/README.md
+datasets/
+
+# Model checkpoints / weights
+checkpoints/
+models/
+weights/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.h5
+*.keras
+*.joblib
+*.pkl
+
+# Experiment outputs
+outputs/
+runs/
+logs/
+wandb/
+mlruns/
+
+# Temporary files
+tmp/
+temp/
+
+# Secrets / local configuration
+.env
+.env.*
+*.key
+*.pem
+secrets.json
