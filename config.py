@@ -7,7 +7,7 @@ from pathlib import Path
 # ============================================================
 
 DATA_ROOT = Path(os.environ.get("SKIN_DATA_ROOT", "./data"))
-CSV_DIR = Path(os.environ.get("SKIN_CSV_DIR", DATA_ROOT / "CSVs"))
+CSV_DIR = Path(os.environ.get("SKIN_CSV_DIR", DATA_ROOT / "CSVs-20260711T054424Z-2-001/CSVs"))
 IMAGE_DIR = Path(os.environ.get("SKIN_IMAGE_DIR", DATA_ROOT / "ISIC_2019_Training_Input"))
 ISIC_ARCHIVE_ZIP = os.environ.get("SKIN_ISIC_ARCHIVE_ZIP", "")
 
