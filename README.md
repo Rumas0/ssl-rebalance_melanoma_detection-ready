@@ -10,7 +10,7 @@ Research code and experiment notebooks for the manuscript:
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue) ![PyTorch](https://img.shields.io/badge/PyTorch-ee4c2c) ![Task](https://img.shields.io/badge/task-melanoma%20classification-lightgrey) ![Use](https://img.shields.io/badge/use-research%20only-red)
 
 <p align="center">
-  <img src="figures/fig03_two_stage_pipeline.png" width="760" alt="Two-stage training pipeline: SimCLR pre-training followed by adaptive fine-tuning">
+  <img src="https://github.com/Rumas0/ssl-rebalance_melanoma_detection-ready/blob/main/figures/fig_two_stage_pipeline.png?raw=true" width="760" alt="Two-stage training pipeline: SimCLR pre-training followed by adaptive fine-tuning">
 </p>
 <p align="center"><em>The two-stage pipeline: SimCLR pre-training on 24,000 unlabeled ISIC images, then fine-tuning on a small labeled split with melanoma-targeted rebalancing.</em></p>
 
@@ -50,7 +50,7 @@ The study is deliberately framed as a resource-constrained engineering problem r
 ISIC 2019 provides 25,331 dermoscopic images. 24,000 are used unlabeled for SimCLR pre-training, and a 1,331-image labeled candidate set yields 691 images (BKL, MEL, NV) for supervised fine-tuning, split 483 / 104 / 104 into train / validation / test. HAM10000 is used only for external validation.
 
 <p align="center">
-  <img src="figures/fig01_data_split.png" width="760" alt="ISIC 2019 data usage and the train/validation/test split">
+  <img src="https://github.com/Rumas0/ssl-rebalance_melanoma_detection-ready/blob/main/figures/fig_data_split_updated.png?raw=true" width="760" alt="ISIC 2019 data usage and the train/validation/test split">
 </p>
 <p align="center"><em>ISIC 2019 data usage. The unlabeled pool feeds Stage 1; the labeled set feeds Stage 2.</em></p>
 
@@ -64,7 +64,7 @@ ISIC 2019 provides 25,331 dermoscopic images. 24,000 are used unlabeled for SimC
 The internal test set contains only 8 melanoma images, so one changed prediction moves melanoma recall by 12.5 percentage points. This motivates the multi-seed protocol and the external validation.
 
 <p align="center">
-  <img src="figures/fig02_representative_images.png" width="640" alt="Representative ISIC 2019 images: BKL, MEL, NV">
+  <img src="https://github.com/Rumas0/ssl-rebalance_melanoma_detection-ready/blob/main/figures/class_samples.png?raw=true" width="640" alt="Representative ISIC 2019 images: BKL, MEL, NV">
 </p>
 <p align="center"><em>One representative image per class (BKL, MEL, NV). ISIC archive images are subject to their original licences; see the <a href="https://www.isic-archive.com/">ISIC archive</a>.</em></p>
 
@@ -73,7 +73,7 @@ The internal test set contains only 8 melanoma images, so one changed prediction
 All experiments share a compact three-block CNN encoder (Conv, BatchNorm, ReLU, MaxPool, with 32, 64, and 128 channels), followed by adaptive average pooling to a 128-dimensional feature vector. The classification head is a two-layer MLP (128 → 64 → 3) with dropout 0.3. A ResNet-18 baseline (ImageNet-pretrained, 11.2M parameters) is used for comparison.
 
 <p align="center">
-  <img src="figures/fig04_encoder_architecture.png" width="860" alt="Three-block CNN encoder architecture">
+  <img src="https://github.com/Rumas0/ssl-rebalance_melanoma_detection-ready/blob/main/figures/3-Layer%20CNN%20architecture.png?raw=true" width="860" alt="Three-block CNN encoder architecture">
 </p>
 <p align="center"><em>The shared three-block encoder. In the SupCon + SE variant, a squeeze-and-excitation block follows each convolutional stage.</em></p>
 
@@ -122,12 +122,12 @@ Accuracy is misleading here: the simple CNN reaches 73.1% accuracy while detecti
 Adaptive weighting moves the decision boundary along a fixed underlying ranking. The precision–recall analysis shows its operating points (red crosses) lie on or slightly below the fixed-weight curve (blue), so the recall gain is bought with a comparable precision loss. Mean melanoma recall rises from 0.417 to 0.458 while mean precision falls from 0.201 to 0.172.
 
 <p align="center">
-  <img src="figures/fig05_pr_curve_adaptive.png" width="620" alt="Fixed-weight precision-recall curve with adaptive-weight operating points overlaid">
+  <img src="https://github.com/Rumas0/ssl-rebalance_melanoma_detection-ready/blob/main/figures/pr_curve_with_adaptive_ops.png?raw=true" width="620" alt="Fixed-weight precision-recall curve with adaptive-weight operating points overlaid">
 </p>
 <p align="center"><em>Fixed-weight melanoma PR curve (mean over three seeds, shaded ±1 SD; Average Precision 0.2085 ± 0.0132) with per-seed operating points for the fixed-weight model (blue circles) and the adaptive-weight model (red crosses).</em></p>
 
 <p align="center">
-  <img src="figures/fig06_roc_pr_per_seed.png" width="860" alt="Per-seed ROC and precision-recall curves for the fixed-weight model">
+  <img src="https://github.com/Rumas0/ssl-rebalance_melanoma_detection-ready/blob/main/figures/roc_pr_mel_3seed_updated.png?raw=true" width="860" alt="Per-seed ROC and precision-recall curves for the fixed-weight model">
 </p>
 <p align="center"><em>Per-seed ROC (left) and precision–recall (right) curves. The curves are step-shaped because the test set has only 8 melanoma images.</em></p>
 
@@ -136,17 +136,17 @@ Adaptive weighting moves the decision boundary along a fixed underlying ranking.
 SupCon + SE attention raises melanoma Average Precision from 0.2085 to 0.261 ± 0.025, and at the default 0.5 threshold recall rises from 41.7% to 45.8% with melanoma precision essentially unchanged (20.1% vs. 19.9% ± 2.8%). The per-seed recall is wide (±14.4%) because a single prediction moves recall by 12.5 points.
 
 <p align="center">
-  <img src="figures/fig07_per_class_ap.png" width="560" alt="Per-class Average Precision for the fixed, adaptive, and SupCon + SE models">
+  <img src="https://github.com/Rumas0/ssl-rebalance_melanoma_detection-ready/blob/main/figures/ap_comparison.png?raw=true" width="560" alt="Per-class Average Precision for the fixed, adaptive, and SupCon + SE models">
 </p>
 <p align="center"><em>Per-class Average Precision across the three model variants. Only the melanoma bar rises; BKL and NV are roughly unchanged.</em></p>
 
 <p align="center">
-  <img src="figures/fig08_roc_pr_pooled.png" width="860" alt="Pooled ROC and precision-recall curves for the three models">
+  <img src="https://github.com/Rumas0/ssl-rebalance_melanoma_detection-ready/blob/main/figures/roc_pr_curves.png?raw=true" width="860" alt="Pooled ROC and precision-recall curves for the three models">
 </p>
 <p align="center"><em>Pooled ROC (left) and precision–recall (right) curves for the fixed-weight, adaptive-weight, and SupCon + SE models. The SupCon + SE curve sits above the other two in the PR panel.</em></p>
 
 <p align="center">
-  <img src="figures/fig09_confusion_matrices.png" width="860" alt="Confusion matrices for the fixed, adaptive, and SupCon + SE models">
+  <img src="https://github.com/Rumas0/ssl-rebalance_melanoma_detection-ready/blob/main/figures/confusion_matrices.png?raw=true" width="860" alt="Confusion matrices for the fixed, adaptive, and SupCon + SE models">
 </p>
 <p align="center"><em>Confusion matrices pooled over three seeds (n = 312 predictions per model). The fixed-weight model concentrates melanoma predictions in the NV and BKL columns, which is the majority-class behaviour this work targets.</em></p>
 
@@ -155,7 +155,7 @@ SupCon + SE attention raises melanoma Average Precision from 0.2085 to 0.261 ± 
 Bootstrap 95% intervals (2,000 resamples, pooled over three seeds) overlap substantially for fixed and adaptive weighting, on both recall and precision. An independent 15-run estimate (3 seeds x 5-fold cross-validation over the 587 train + validation images, evaluated on the unchanged test set) gives 40.0% ± 5.2% melanoma recall, within noise of the three-seed result. The adaptive-weighting shift is therefore reported descriptively and is not claimed to be statistically significant.
 
 <p align="center">
-  <img src="figures/fig10_bootstrap_ci.png" width="620" alt="Bootstrap 95% confidence intervals for melanoma recall and precision">
+  <img src="https://github.com/Rumas0/ssl-rebalance_melanoma_detection-ready/blob/main/figures/bootstrap_ci_comparison.png?raw=true" width="620" alt="Bootstrap 95% confidence intervals for melanoma recall and precision">
 </p>
 <p align="center"><em>95% bootstrap confidence intervals for melanoma recall and precision (n = 312 pooled predictions per model).</em></p>
 
@@ -164,7 +164,7 @@ Bootstrap 95% intervals (2,000 resamples, pooled over three seeds) overlap subst
 A DCGAN trained on only 35 melanoma images collapsed to near-duplicates. In the SSL encoder's feature space, synthetic images were closer to individual real melanoma images than real images are to each other (mean nearest-neighbour cosine 0.9565 vs. 0.8003), yet the Fréchet Encoder Distance was about four times larger (8.63 vs. 2.13). That pattern means a narrow, shifted distribution rather than diverse new samples, and the augmented model performed worse than oversampling alone.
 
 <p align="center">
-  <img src="figures/fig11_gan_samples.png" width="620" alt="Synthetic melanoma samples generated by the DCGAN">
+  <img src="https://github.com/Rumas0/ssl-rebalance_melanoma_detection-ready/blob/main/figures/synthetic_mel_grid.png?raw=true" width="620" alt="Synthetic melanoma samples generated by the DCGAN">
 </p>
 <p align="center"><em>Synthetic melanoma samples from the DCGAN. The repeated textures and colour patterns are a visual sign of mode collapse.</em></p>
 
@@ -178,14 +178,14 @@ A DCGAN trained on only 35 melanoma images collapsed to near-duplicates. In the 
 The ranking inverts externally: the model that looks best on the internal split degrades most under domain shift. Pooling a **small** real supplement (41 HAM10000 melanoma images, 24 lesions) into training raises external melanoma recall from 6.6% to 29.9% ± 9.6% and internal recall to 58.3% ± 7.2%, without an accuracy collapse (68.6% ± 3.7%). Pooling the full spare pool (555 images) over-corrected the imbalance, collapsing internal accuracy to 46–60% as the model called almost everything melanoma.
 
 <p align="center">
-  <img src="figures/fig12_ham_supplement.png" width="560" alt="Melanoma recall with and without a modest HAM10000 supplement">
+  <img src="https://github.com/Rumas0/ssl-rebalance_melanoma_detection-ready/blob/main/figures/ham_pooling_comparison.png?raw=true" width="560" alt="Melanoma recall with and without a modest HAM10000 supplement">
 </p>
 <p align="center"><em>Melanoma recall with and without a modest real HAM10000 supplement, on the internal test set and the external holdout (±1 SD over three seeds).</em></p>
 
 ### Training dynamics
 
 <p align="center">
-  <img src="figures/fig13_finetune_convergence.png" width="860" alt="Fine-tuning loss and accuracy curves across three seeds">
+  <img src="https://github.com/Rumas0/ssl-rebalance_melanoma_detection-ready/blob/main/figures/finetune_curves_3seed_updated.png?raw=true" width="860" alt="Fine-tuning loss and accuracy curves across three seeds">
 </p>
 <p align="center"><em>Fine-tuning loss (left) and train/validation accuracy (right) for the SSL + rebalancing pipeline across seeds 42, 123, and 2024. Loss converges within 5–10 epochs, and validation accuracy plateaus around epoch 10–15.</em></p>
 
@@ -246,7 +246,7 @@ Some figures (for example the confusion matrices and the convergence curves) wer
 ## Setup, data, and configuration
 
 ```bash
-git clone https://github.com/Rumas0/ssl-rebalance_melanoma_detection.git
+git clone https://github.com/Rumas0/ssl-rebalance_melanoma_detection-ready.git
 cd ssl-rebalance_melanoma_detection
 pip install -r requirements.txt
 ```
