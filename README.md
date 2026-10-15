@@ -5,7 +5,7 @@ Research code and experiment notebooks for the manuscript:
 > **Shifting vs. Lifting Melanoma Recall under Severe Class Imbalance: An Empirical Study of Loss-Level, Representation-Level, and Generative Interventions**
 > I. S. Tunib, Md. Sazzadur Ahamed, M. F. Bin
 
-> **Status:** manuscript in preparation. This repository holds the implementation, experiment notebooks, selected figures, and configuration used in the study. Raw datasets and trained checkpoints are not included.
+> **Status:** manuscript has been submitted to "Computer Methods and Programs in Biomedicine Update" publication of Elsevier and is under review now. This repository holds the implementation, experiment notebooks, selected figures, and configuration used in the study. Raw datasets and trained checkpoints are not included.
 
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue) ![PyTorch](https://img.shields.io/badge/PyTorch-ee4c2c) ![Task](https://img.shields.io/badge/task-melanoma%20classification-lightgrey) ![Use](https://img.shields.io/badge/use-research%20only-red)
 
