@@ -1,0 +1,9 @@
+model,accuracy_mean,accuracy_sd,macro_f1_mean,macro_f1_sd,mel_recall_mean,mel_recall_sd,params,seeds
+Simple CNN (real images),0.731,0.008,,,0.000,0.000,0.1M,3
+ResNet-18 + heavy augmentation,0.785,0.025,0.591,0.013,0.333,0.059,11.2M,3
+SSL only (no rebalancing),0.740,,0.392,,0.000,,0.1M,1
+Rebalancing only (no SSL),0.673,,0.536,,0.375,,0.1M,1
+SSL + rebalancing (fixed weights),0.647,0.032,0.510,0.021,0.417,0.059,0.1M,3
+SSL + adaptive weighting,0.606,0.014,0.483,0.014,0.458,0.059,0.1M,3
+SSL + GAN-synthetic MEL,0.622,0.048,0.452,0.023,0.167,0.118,0.1M,3
+SupCon + SE attention,0.673,0.025,0.512,0.009,0.458,0.144,0.1M,3

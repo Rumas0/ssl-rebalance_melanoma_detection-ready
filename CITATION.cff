@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "Self-Supervised Pretraining and Imbalance-Aware Rebalancing for Melanoma Detection"
+title: "Shifting vs. Lifting Melanoma Recall under Severe Class Imbalance: An Empirical Study of Loss-Level, Representation-Level, and Generative Interventions"
 message: "If you use this research code, please cite the accompanying manuscript."
 type: software
 authors:
@@ -8,5 +8,5 @@ authors:
   - family-names: Ahamed
     given-names: "Md. Sazzadur"
   - family-names: Bin
-    given-names: "M.F."
-repository-code: "https://github.com/Rumas0/ssl-rebalance_melanoma_detection"
+    given-names: "M. F."
+repository-code: "https://github.com/Rumas0/ssl-rebalance_melanoma_detection-ready"
